@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>OAuth Callback</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                         Roboto, Helvetica, Arial, sans-serif;
+            background: #0a0a0f;
+            color: #e0dfd5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .card {
+            max-width: 640px;
+            width: 100%;
+            background: #141420;
+            border: 1px solid #2a2a3a;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #f5f5f0;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #999;
+        }
+
+        dl { margin-top: 1rem; }
+
+        dt {
+            font-size: 0.8rem;
+            color: #6c63ff;
+            margin-top: 0.75rem;
+        }
+
+        dd {
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #e0dfd5;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Tag Monitor: OAuth Callback</h1>
+        <p id="status">No authorization parameters received.</p>
+        <dl id="params"></dl>
+    </div>
+    <script>
+        const params = new URLSearchParams(location.search);
+        const list = document.getElementById('params');
+        for (const [key, value] of params) {
+            const dt = document.createElement('dt');
+            const dd = document.createElement('dd');
+            dt.textContent = key;
+            dd.textContent = value;
+            list.append(dt, dd);
+        }
+        if ([...params].length) {
+            document.getElementById('status').textContent =
+                params.has('error')
+                    ? 'Authorization was not granted.'
+                    : 'Authorization received. Copy the values below into the app.';
+        }
+    </script>
+</body>
+</html>
