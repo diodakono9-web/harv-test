@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tumblr Tag Monitor</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                         Roboto, Helvetica, Arial, sans-serif;
+            background: #0a0a0f;
+            color: #e0dfd5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 640px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #f5f5f0;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .card {
+            background: #141420;
+            border: 1px solid #2a2a3a;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #c8c7bf;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #999;
+        }
+
+        .features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .features li {
+            padding: 0.5rem 0;
+            font-size: 0.92rem;
+            color: #aaa;
+            border-bottom: 1px solid #1e1e2e;
+        }
+
+        .features li:last-child { border-bottom: none; }
+
+        .features li::before {
+            content: "→ ";
+            color: #6c63ff;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #1a1a2e;
+            border: 1px solid #2a2a3a;
+            color: #6c63ff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #555;
+            text-align: center;
+        }
+
+        footer a {
+            color: #6c63ff;
+            text-decoration: none;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        .contact {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #111118;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            color: #777;
+        }
+
+        .contact a { color: #6c63ff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="badge">Community Safety Tool</span>
+        <h1>Tumblr Tag Monitor</h1>
+        <p class="subtitle">
+            An open-source moderation utility for monitoring and reporting
+            policy-violating content across Tumblr tags.
+        </p>
+
+        <div class="card">
+            <h2>What This Does</h2>
+            <p>
+                Tag Monitor helps community moderators identify and report
+                content that violates Tumblr's Community Guidelines.
+                It uses the Tumblr API to scan specified tags and streamline
+                the abuse-reporting workflow.
+            </p>
+            <ul class="features">
+                <li>Tag-based content scanning via Tumblr's public API</li>
+                <li>Automated report submission for flagged posts</li>
+                <li>Full audit logging of all actions taken</li>
+                <li>Configurable tag lists and report categories</li>
+                <li>Rate-limited to respect API guidelines</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Privacy &amp; Data</h2>
+            <p>
+                This tool accesses only publicly available post data through
+                Tumblr's official API. No user data is collected, stored,
+                or shared beyond what is necessary for report submission.
+                All actions are logged locally for transparency.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>OAuth Callback</h2>
+            <p>
+                The default callback URL for this application is:
+            </p>
+            <p style="margin-top: 0.75rem; color: #6c63ff; font-family: monospace; font-size: 0.9rem;">
+                https://yourdomain.com/callback
+            </p>
+            <p style="margin-top: 0.75rem;">
+                Replace with your actual hosted domain when registering.
+            </p>
+        </div>
+
+        <div class="contact">
+            Contact: <a href="mailto:you@yourdomain.com">you@yourdomain.com</a>
+            <br>
+            Source available on request.
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Tag Monitor Project &middot;
+               <a href="https://www.tumblr.com/policy/en/community">
+                   Tumblr Community Guidelines
+               </a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
